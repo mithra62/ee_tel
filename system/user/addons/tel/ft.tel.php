@@ -41,7 +41,7 @@ class Tel_ft extends EE_Fieldtype implements ColumnInterface
             return true;
         }
 
-        return 'enter valid phone number';
+        return lang('invalid_error_message');
     }
 
     public function install()
