@@ -183,4 +183,8 @@ class Tel_ft extends EE_Fieldtype implements ColumnInterface
         return $data;
     }
 
+    public function accepts_content_type($name)
+    {
+        return true;
+    }
 }
