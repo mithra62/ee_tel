@@ -290,15 +290,6 @@ abstract class AbstractTag extends AbstractRoute
     }
 
     /**
-     * @param string $market
-     * @return array
-     */
-    public function getMarket(string $market): array
-    {
-        return ee('ah_utils:MarketsService')->getMarket($market);
-    }
-
-    /**
      * @return bool
      */
     protected function isPost(): bool
