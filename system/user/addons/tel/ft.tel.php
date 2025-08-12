@@ -37,7 +37,7 @@ class Tel_ft extends EE_Fieldtype implements ColumnInterface
         $data = preg_replace('[\D]', '', $data);
         $data = preg_replace('/[^0-9]/', '', $data);
 
-        if (strlen($data) >= 10) {
+        if (strlen($data) >= 10 || strlen($data) == 7) {
             return true;
         }
 
@@ -152,33 +152,7 @@ class Tel_ft extends EE_Fieldtype implements ColumnInterface
      */
     public function replace_format($data, $params = [], $tagdata = false)
     {
-        $phone_number = $data;
-        $phone_number = htmlspecialchars($phone_number);
-        $phone_number = preg_replace('[\D]', '', $phone_number);
-
-        $phone_number = preg_replace('/[^0-9]/', '', $phone_number);
-
-        if (strlen($phone_number) > 10) {
-            $country_code = substr($phone_number, 0, strlen($phone_number) - 10);
-            $area_code = substr($phone_number, -10, 3);
-            $next_three = substr($phone_number, -7, 3);
-            $last_four = substr($phone_number, -4, 4);
-
-            $phone_number = '+' . $country_code . ' (' . $area_code . ') ' . $next_three . '-' . $last_four;
-        } elseif (strlen($phone_number) == 10) {
-            $area_code = substr($phone_number, 0, 3);
-            $next_three = substr($phone_number, 3, 3);
-            $last_four = substr($phone_number, 6, 4);
-
-            $phone_number = '(' . $area_code . ') ' . $next_three . '-' . $last_four;
-        } elseif (strlen($phone_number) == 7) {
-            $next_three = substr($phone_number, 0, 3);
-            $last_four = substr($phone_number, 3, 4);
-
-            $phone_number = $next_three . '-' . $last_four;
-        }
-
-        return $phone_number;
+        return ee('tel:FormatService')->phone($data);
     }
 
     /**

@@ -2,13 +2,14 @@
 
 namespace Mithra62\Tel\Tags;
 
-use ExpressionEngine\Service\Addon\Controllers\Tag\AbstractRoute;
-
-class Format extends AbstractRoute
+class Format extends AbstractTag
 {
     // Example tag: {exp:phone_number:format}
     public function process()
     {
-
+        $number = $this->param('number');
+        if($number) {
+            return ee('tel:FormatService')->phone($number);
+        }
     }
 }
