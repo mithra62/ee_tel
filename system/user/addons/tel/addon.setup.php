@@ -1,9 +1,7 @@
 <?php
 
-require_once PATH_THIRD . 'tel/vendor/autoload.php';
-
 return [
-    'name'              => 'tel',
+    'name'              => 'Telephone FieldType',
     'description'       => 'Adds Telephone specific functionality to ExpressionEngine',
     'version'           => '1.0.0',
     'author'            => 'mithra62',

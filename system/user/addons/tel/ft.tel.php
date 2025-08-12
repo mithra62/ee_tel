@@ -107,6 +107,13 @@ class Tel_ft extends EE_Fieldtype implements ColumnInterface
      */
     public function display_field($data)
     {
+        $field = array(
+            'name' => $this->field_name,
+            'value' => $data,
+            'placeholder' => $this->settings['placeholder']
+        );
+
+        return form_input($field);
         $defaults = ['type' => 'tel', 'name' => $this->field_name, 'value' => $data];
         return "<input " . _parse_form_attributes($data, $defaults) . " placeholder='". $this->settings['placeholder'] ."' />";
     }

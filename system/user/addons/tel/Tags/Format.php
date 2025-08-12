@@ -9,6 +9,6 @@ class Format extends AbstractRoute
     // Example tag: {exp:phone_number:format}
     public function process()
     {
-        return "My tag";
+
     }
 }
