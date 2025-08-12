@@ -114,8 +114,10 @@ class Tel_ft extends EE_Fieldtype implements ColumnInterface
         );
 
         return form_input($field);
-        $defaults = ['type' => 'tel', 'name' => $this->field_name, 'value' => $data];
-        return "<input " . _parse_form_attributes($data, $defaults) . " placeholder='". $this->settings['placeholder'] ."' />";
+        //@todo we have to use an input field or else validation gets stuck and we cannot submit again
+        //discuss with PT when able
+        //$defaults = ['type' => 'tel', 'name' => $this->field_name, 'value' => $data];
+        //return "<input " . _parse_form_attributes($data, $defaults) . " placeholder='". $this->settings['placeholder'] ."' />";
     }
 
     /**

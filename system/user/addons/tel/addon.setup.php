@@ -1,5 +1,7 @@
 <?php
 
+use Mithra62\Tel\Services\FormatService;
+
 return [
     'name'              => 'Telephone FieldType',
     'description'       => 'Adds Telephone specific functionality to ExpressionEngine',
@@ -13,5 +15,11 @@ return [
             'name' => 'Telephone',
             'compatibility' => 'text',
         ],
-    ], 
+    ],
+    'services' => [
+        'FormatService' => function ($addon) {
+            return new FormatService();
+        },
+    ]
+
 ];
