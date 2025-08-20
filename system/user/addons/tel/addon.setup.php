@@ -14,6 +14,9 @@ return [
         'tel' => [
             'name' => 'Telephone',
             'compatibility' => 'text',
+            'use' => [
+                'MemberField',
+            ],
         ],
     ],
     'services' => [
