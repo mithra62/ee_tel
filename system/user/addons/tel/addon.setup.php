@@ -24,5 +24,4 @@ return [
             return new FormatService();
         },
     ]
-
 ];
